@@ -4,7 +4,8 @@ const db = knex(config.development);
 
 module.exports = {
     register,
-    getUserById
+    getUserById,
+    getUserByUsername
 }
 
 function register(user){
@@ -13,4 +14,8 @@ function register(user){
 
 function getUserById(userId){
     return db("users").where({id: userId})
+}
+
+function getUserByUsername(un){
+    return db("users").where({username: un})
 }
